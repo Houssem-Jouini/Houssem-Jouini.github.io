@@ -248,12 +248,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================
-     8. CONTACT FORM HANDLER
+     8. WEB3FORMS DIRECT EMAIL SUBMISSION
      ========================================================== */
   const contactForm = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contact-submit-btn');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const nameInput = document.getElementById('contact-name');
       const emailInput = document.getElementById('contact-email');
       const subjectInput = document.getElementById('contact-subject');
@@ -261,20 +264,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const name = nameInput ? nameInput.value.trim() : '';
       const email = emailInput ? emailInput.value.trim() : '';
-      const subject = subjectInput ? subjectInput.value.trim() : 'Project Inquiry';
-      const msg = msgInput ? msgInput.value.trim() : '';
+      const subject = subjectInput ? subjectInput.value.trim() : 'New Portfolio Inquiry';
+      const message = msgInput ? msgInput.value.trim() : '';
 
-      if (!name || !email || !msg) {
+      if (!name || !email || !message) {
         showToast('⚠ Please fill in all required fields.');
         return;
       }
 
-      // Generate mailto link
-      const mailtoUrl = `mailto:houssemeddine.jouini@esen.tn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`)}`;
-      window.location.href = mailtoUrl;
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Send Message Directly →';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>⏳ Sending message...</span>';
+      }
 
-      showToast('✓ Opening email client...');
-      contactForm.reset();
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: 'e84ed48d-a746-48c1-a736-b0db89b46bf6',
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+            from_name: 'Houssem Portfolio Contact'
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200 && result.success) {
+          showToast('✓ Message sent successfully! I will reply soon.');
+          contactForm.reset();
+        } else {
+          showToast(`⚠ ${result.message || 'Error sending message. Please try again.'}`);
+        }
+      } catch (error) {
+        showToast('⚠ Error sending. Please email directly to houssemeddine.jouini@esen.tn');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 
