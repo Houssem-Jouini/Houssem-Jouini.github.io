@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Houssem Eddine Jouini — .NET & Angular Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Houssem Eddine Jouini, a Full-Stack .NET & Angular Developer specializing in Clean Architecture, CQRS, EF Core, and real-time SignalR applications.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress" class="scroll-progress"></div>
+
+  <!-- Ambient Animated Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Floating Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- ================= NAVBAR ================= -->
+  <header id="navbar" class="navbar">
+    <div class="wrap nav-container">
+      <a href="#about" class="nav-brand">
+        <span class="brand-badge">HJ</span>
+        <span>Houssem Jouini</span>
+      </a>
+
+      <nav>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="#about" class="nav-link active">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#skills" class="nav-link">Stack</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#architecture" class="nav-link">Simulator</a></li>
+          <li><a href="#education" class="nav-link">Background</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span>Available for work</span>
+        </div>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO SECTION ================= -->
+    <section id="about" class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <!-- Left Column -->
+          <div class="hero-left reveal">
+            <div class="eyebrow">
+              <span class="dot"></span>
+              Full-Stack .NET & Angular Engineer
+            </div>
+            
+            <h1>Houssem Eddine<br>Jouini</h1>
+            
+            <div class="hero-role">
+              <span>Freelance & Full-Stack Developer</span>
+              <span class="sep">/</span>
+              <span>.NET 8 · Angular 18 · Clean Architecture</span>
+            </div>
+
+            <p class="bio">
+              I design and build enterprise-grade web applications end to end — reactive Angular on the front, robust .NET and Entity Framework Core on the back — with a focus on Clean Architecture, CQRS patterns, and real-time SignalR workflows. Based in Ben Arous, Tunisia, working remotely or on site across Greater Tunis.
+            </p>
+
+            <!-- Mini Interactive Workflow Sequence -->
+            <div class="flow">
+              <div class="flow-node"><span class="dot"></span>MODEL</div>
+              <div class="flow-line"></div>
+              <div class="flow-node"><span class="dot"></span>BUILD</div>
+              <div class="flow-line"></div>
+              <div class="flow-node"><span class="dot"></span>TEST</div>
+              <div class="flow-line"></div>
+              <div class="flow-node"><span class="dot"></span>SHIP</div>
+            </div>
+
+            <!-- Call to actions -->
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact">Get in Touch →</a>
+              <a class="btn btn-ghost" href="#projects">View Projects ↓</a>
+              <button class="btn btn-ghost" data-copy="houssemeddine.jouini@esen.tn" data-label="Email copied!">Copy Email</button>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Code IDE Card -->
+          <div class="terminal-card reveal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <div class="terminal-tabs">
+                <button class="terminal-tab active" data-tab="tab-csharp">WorkflowEngine.cs</button>
+                <button class="terminal-tab" data-tab="tab-angular">dashboard.component.ts</button>
+                <button class="terminal-tab" data-tab="tab-arch">architecture.json</button>
+              </div>
+            </div>
+
+            <div class="terminal-body">
+              <!-- Panel 1: C# .NET CQRS -->
+              <div id="tab-csharp" class="code-panel active">
+                <div class="code-line"><span class="code-num">1</span><span class="c-kw">public sealed class</span> <span class="c-type">CreateWorkflowCommand</span> : <span class="c-type">IRequest</span>&lt;<span class="c-type">Result</span>&lt;<span class="c-type">Guid</span>&gt;&gt;</div>
+                <div class="code-line"><span class="code-num">2</span>{</div>
+                <div class="code-line"><span class="code-num">3</span>    <span class="c-kw">public required string</span> <span class="c-prop">Title</span> { <span class="c-kw">get</span>; <span class="c-kw">init</span>; }</div>
+                <div class="code-line"><span class="code-num">4</span>    <span class="c-kw">public required string</span> <span class="c-prop">BpmnXml</span> { <span class="c-kw">get</span>; <span class="c-kw">init</span>; }</div>
+                <div class="code-line"><span class="code-num">5</span>}</div>
+                <div class="code-line"><span class="code-num">6</span></div>
+                <div class="code-line"><span class="code-num">7</span><span class="c-kw">public class</span> <span class="c-type">Handler</span>(<span class="c-type">IAppDbContext</span> db, <span class="c-type">IHubContext</span>&lt;<span class="c-type">WorkflowHub</span>&gt; hub)</div>
+                <div class="code-line"><span class="code-num">8</span>    : <span class="c-type">IRequestHandler</span>&lt;<span class="c-type">CreateWorkflowCommand</span>, <span class="c-type">Result</span>&lt;<span class="c-type">Guid</span>&gt;&gt;</div>
+                <div class="code-line"><span class="code-num">9</span>{</div>
+                <div class="code-line"><span class="code-num">10</span>    <span class="c-kw">public async Task</span>&lt;<span class="c-type">Result</span>&lt;<span class="c-type">Guid</span>&gt;&gt; <span class="c-fn">Handle</span>(<span class="c-type">CreateWorkflowCommand</span> cmd, <span class="c-type">CancellationToken</span> ct)</div>
+                <div class="code-line"><span class="code-num">11</span>    {</div>
+                <div class="code-line"><span class="code-num">12</span>        <span class="c-kw">var</span> wf = <span class="c-type">Workflow</span>.<span class="c-fn">Create</span>(cmd.Title, cmd.BpmnXml);</div>
+                <div class="code-line"><span class="code-num">13</span>        db.Workflows.<span class="c-fn">Add</span>(wf);</div>
+                <div class="code-line"><span class="code-num">14</span>        <span class="c-kw">await</span> db.<span class="c-fn">SaveChangesAsync</span>(ct);</div>
+                <div class="code-line"><span class="code-num">15</span>        <span class="c-kw">await</span> hub.Clients.All.<span class="c-fn">SendAsync</span>(<span class="c-str">"WorkflowUpdated"</span>, wf.Id, ct);</div>
+                <div class="code-line"><span class="code-num">16</span>        <span class="c-kw">return</span> <span class="c-type">Result</span>.<span class="c-fn">Success</span>(wf.Id);</div>
+                <div class="code-line"><span class="code-num">17</span>    }</div>
+                <div class="code-line"><span class="code-num">18</span>}</div>
+              </div>
+
+              <!-- Panel 2: Angular Component with SignalR -->
+              <div id="tab-angular" class="code-panel">
+                <div class="code-line"><span class="code-num">1</span><span class="c-kw">import</span> { <span class="c-type">Component</span>, <span class="c-type">signal</span>, <span class="c-type">inject</span>, <span class="c-type">OnInit</span> } <span class="c-kw">from</span> <span class="c-str">'@angular/core'</span>;</div>
+                <div class="code-line"><span class="code-num">2</span><span class="c-kw">import</span> { <span class="c-type">SignalrService</span> } <span class="c-kw">from</span> <span class="c-str">'@core/services/signalr.service'</span>;</div>
+                <div class="code-line"><span class="code-num">3</span></div>
+                <div class="code-line"><span class="code-num">4</span><span class="c-kw">@Component</span>({</div>
+                <div class="code-line"><span class="code-num">5</span>  <span class="c-prop">selector</span>: <span class="c-str">'app-workflow-dashboard'</span>,</div>
+                <div class="code-line"><span class="code-num">6</span>  <span class="c-prop">standalone</span>: <span class="c-kw">true</span>,</div>
+                <div class="code-line"><span class="code-num">7</span>  <span class="c-prop">templateUrl</span>: <span class="c-str">'./dashboard.component.html'</span></div>
+                <div class="code-line"><span class="code-num">8</span>})</div>
+                <div class="code-line"><span class="code-num">9</span><span class="c-kw">export class</span> <span class="c-type">DashboardComponent</span> <span class="c-kw">implements</span> <span class="c-type">OnInit</span> {</div>
+                <div class="code-line"><span class="code-num">10</span>  <span class="c-kw">private</span> signalr = <span class="c-fn">inject</span>(<span class="c-type">SignalrService</span>);</div>
+                <div class="code-line"><span class="code-num">11</span>  <span class="c-kw">readonly</span> activeWorkflows = <span class="c-fn">signal</span>&lt;<span class="c-type">Workflow</span>[]&gt;([]);</div>
+                <div class="code-line"><span class="code-num">12</span></div>
+                <div class="code-line"><span class="code-num">13</span>  <span class="c-fn">ngOnInit</span>(): <span class="c-kw">void</span> {</div>
+                <div class="code-line"><span class="code-num">14</span>    <span class="c-kw">this</span>.signalr.on(<span class="c-str">'WorkflowUpdated'</span>, (id) =&gt; {</div>
+                <div class="code-line"><span class="code-num">15</span>      <span class="c-kw">this</span>.<span class="c-fn">refreshMetrics</span>(id);</div>
+                <div class="code-line"><span class="code-num">16</span>    });</div>
+                <div class="code-line"><span class="code-num">17</span>  }</div>
+                <div class="code-line"><span class="code-num">18</span>}</div>
+              </div>
+
+              <!-- Panel 3: Architecture Specs JSON -->
+              <div id="tab-arch" class="code-panel">
+                <div class="code-line"><span class="code-num">1</span>{</div>
+                <div class="code-line"><span class="code-num">2</span>  <span class="c-prop">"architecture"</span>: <span class="c-str">"Clean Architecture (Onion)"</span>,</div>
+                <div class="code-line"><span class="code-num">3</span>  <span class="c-prop">"layers"</span>: {</div>
+                <div class="code-line"><span class="code-num">4</span>    <span class="c-prop">"Domain"</span>: <span class="c-str">"Entities, Value Objects, Domain Events"</span>,</div>
+                <div class="code-line"><span class="code-num">5</span>    <span class="c-prop">"Application"</span>: <span class="c-str">"CQRS Commands, MediatR, FluentValidation"</span>,</div>
+                <div class="code-line"><span class="code-num">6</span>    <span class="c-prop">"Infrastructure"</span>: <span class="c-str">"EF Core, SQL Server, SignalR Hubs"</span>,</div>
+                <div class="code-line"><span class="code-num">7</span>    <span class="c-prop">"Presentation"</span>: <span class="c-str">"ASP.NET Core REST API + Angular 18 SPA"</span></div>
+                <div class="code-line"><span class="code-num">8</span>  },</div>
+                <div class="code-line"><span class="code-num">9</span>  <span class="c-prop">"principles"</span>: [<span class="c-str">"SOLID"</span>, <span class="c-str">"DRY"</span>, <span class="c-str">"Decoupled Contracts"</span>]</div>
+                <div class="code-line"><span class="code-num">10</span>}</div>
+              </div>
+            </div>
+
+            <div class="terminal-footer">
+              <span class="live-badge"><span class="mini-dot"></span> SignalR Connection: Connected</span>
+              <span>UTF-8 · C# / TS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STATS / HIGHLIGHT PILLARS ================= -->
+    <section class="stats-section">
+      <div class="wrap">
+        <div class="stats-grid reveal-stagger">
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-title">Full-Stack .NET & Angular</div>
+            <div class="stat-desc">End-to-end engineering from relational database schemas to reactive client components.</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🏛️</div>
+            <div class="stat-title">Clean Architecture & CQRS</div>
+            <div class="stat-desc">Decoupled domain models, MediatR command pipelines, and maintainable enterprise codebases.</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">📡</div>
+            <div class="stat-title">Real-Time SignalR</div>
+            <div class="stat-desc">Live WebSocket streaming, automated alerts, and real-time business telemetry dashboards.</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🗄️</div>
+            <div class="stat-title">Relational Data & EF Core</div>
+            <div class="stat-desc">Optimized querying, schema modeling, and indexing across SQL Server, PostgreSQL, and MySQL.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES SECTION ================= -->
+    <section id="services">
+      <div class="wrap">
+        <div class="eyebrow reveal"><span class="dot"></span> 01 — What I Do</div>
+        <h2 class="section-title reveal">Services & Capabilities</h2>
+        <p class="section-subtitle reveal">Tailored software engineering services designed for reliability, maintainability, and clean user experience.</p>
+
+        <div class="services-grid reveal-stagger">
+          <div class="service-card">
+            <span class="service-tag">Full-Stack Development</span>
+            <h3>Custom Web Applications</h3>
+            <p>Full-cycle web development combining responsive Angular front-ends with resilient .NET and Entity Framework Core back-ends built to your exact specifications.</p>
+            <ul class="service-bullets">
+              <li>SPA Architecture & State Management</li>
+              <li>RESTful API & Contract-First Design</li>
+              <li>Authentication & Role-Based Authorization</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <span class="service-tag">Data Engineering</span>
+            <h3>Database Design & Optimization</h3>
+            <p>Structured relational database modeling, normalization, migration strategies, and query performance tuning across SQL Server, PostgreSQL, and MySQL.</p>
+            <ul class="service-bullets">
+              <li>Schema Architecture & Entity Modeling</li>
+              <li>LINQ & EF Core Query Optimization</li>
+              <li>Transaction Management & Data Integrity</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <span class="service-tag">Process Automation</span>
+            <h3>Workflow & BPMN 2.0 Engines</h3>
+            <p>Design and integration of visual drag-and-drop workflow modelers (bpmn-js), custom validation rules, and automated state-machine execution engines.</p>
+            <ul class="service-bullets">
+              <li>BPMN 2.0 Visual Process Designers</li>
+              <li>CQRS Command Dispatching & Handlers</li>
+              <li>Audit Trails & Event-Driven Progression</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <span class="service-tag">Live Telemetry</span>
+            <h3>Real-Time Dashboards & Evolution</h3>
+            <p>Building low-latency real-time dashboards with SignalR WebSockets, plus ongoing code maintenance, bug fixes, refactoring, and scaling existing applications.</p>
+            <ul class="service-bullets">
+              <li>SignalR Live Broadcasts & Subscriptions</li>
+              <li>Legacy Refactoring to Clean Architecture</li>
+              <li>Performance Auditing & Bug Resolution</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS MATRIX SECTION ================= -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="eyebrow reveal"><span class="dot"></span> 02 — Stack & Technologies</div>
+        <h2 class="section-title reveal">Technical Stack</h2>
+        <p class="section-subtitle reveal">The battle-tested technologies, frameworks, and methodologies I rely on daily.</p>
+
+        <div class="skills-container reveal-stagger">
+          <!-- Category 1: Backend -->
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-title">⚙️ Back-End Engineering</span>
+            </div>
+            <div class="pill-row">
+              <span class="skill-pill featured">.NET 8 / C#</span>
+              <span class="skill-pill featured">Entity Framework Core</span>
+              <span class="skill-pill featured">Clean Architecture</span>
+              <span class="skill-pill">CQRS / MediatR</span>
+              <span class="skill-pill">SignalR WebSockets</span>
+              <span class="skill-pill">RESTful Web APIs</span>
+              <span class="skill-pill">FluentValidation</span>
+              <span class="skill-pill">LINQ</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Frontend -->
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-title">🎨 Front-End Development</span>
+            </div>
+            <div class="pill-row">
+              <span class="skill-pill featured">Angular 18</span>
+              <span class="skill-pill featured">TypeScript</span>
+              <span class="skill-pill">RxJS & Signals</span>
+              <span class="skill-pill">HTML5 & CSS3 / SCSS</span>
+              <span class="skill-pill">bpmn-js</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
+              <span class="skill-pill">Responsive UI / UX</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Databases -->
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-title">🗄️ Database & Persistence</span>
+            </div>
+            <div class="pill-row">
+              <span class="skill-pill featured">Microsoft SQL Server</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">Relational Data Modeling</span>
+              <span class="skill-pill">DataCamp Certified SQL</span>
+              <span class="skill-pill">Migrations & Indexing</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Tools & Practices -->
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-title">🛠️ Tools & Methodology</span>
+            </div>
+            <div class="pill-row">
+              <span class="skill-pill">Git & GitHub</span>
+              <span class="skill-pill">Agile / Scrum</span>
+              <span class="skill-pill">UML & Architecture Modeling</span>
+              <span class="skill-pill">BPMN 2.0 Standard</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">Visual Studio / VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS SECTION ================= -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="eyebrow reveal"><span class="dot"></span> 03 — Featured Projects</div>
+        <h2 class="section-title reveal">Projects & Track Record</h2>
+        <p class="section-subtitle reveal">Selected case studies demonstrating end-to-end architecture, process automation, and real-time systems.</p>
+
+        <div class="projects-list">
+          <!-- Project 1 -->
+          <div class="project-card reveal">
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-badge">FEATURED</span>
+                <span class="project-date">FEB 2026 → MAY 2026</span>
+              </div>
+              <h3>Business Workflow Management & Automation Platform</h3>
+              <div class="project-org">End-of-Studies Internship · Poulina Group Holding</div>
+              <p class="project-desc">
+                An enterprise-scale platform designed to model, orchestrate, and monitor critical business workflows across departments. Built on Clean Architecture with a decoupled CQRS/MediatR pipeline and live SignalR synchronization.
+              </p>
+              <ul class="project-highlights">
+                <li>Engineered a drag-and-drop BPMN 2.0 visual modeler integrated with <b>bpmn-js</b> allowing non-technical managers to design complex process graphs.</li>
+                <li>Built a <b>CQRS execution engine</b> using MediatR with pipeline behaviors for validation and automated audit logging.</li>
+                <li>Delivered a real-time monitoring dashboard with <b>SignalR WebSockets</b> and modeled the SQL Server database under Agile/Scrum.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag-badge">.NET 8</span>
+                <span class="tag-badge">Angular 18</span>
+                <span class="tag-badge">EF Core</span>
+                <span class="tag-badge">CQRS / MediatR</span>
+                <span class="tag-badge">bpmn-js</span>
+                <span class="tag-badge">SignalR</span>
+                <span class="tag-badge">SQL Server</span>
+              </div>
+              <div class="cta-row">
+                <a class="btn btn-primary btn-sm" href="#architecture">Try Live Simulator →</a>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/Houssem-Jouini" target="_blank" rel="noopener">GitHub Repo ↗</a>
+              </div>
+            </div>
+
+            <!-- Side Architecture Mini Flow -->
+            <div class="project-side-panel">
+              <div class="architecture-preview">
+                <div class="arch-header">Architecture Topology</div>
+                <div class="arch-flow-box">
+                  <div class="arch-node">
+                    <span>Angular (bpmn-js)</span>
+                    <span class="badge">Visual UI</span>
+                  </div>
+                  <div class="arch-arrow">↓ REST / WebSocket</div>
+                  <div class="arch-node">
+                    <span>MediatR Command Pipeline</span>
+                    <span class="badge">CQRS Engine</span>
+                  </div>
+                  <div class="arch-arrow">↓ Unit of Work</div>
+                  <div class="arch-node">
+                    <span>EF Core & SQL Server</span>
+                    <span class="badge">Persistence</span>
+                  </div>
+                  <div class="arch-arrow">↑ Real-Time Push</div>
+                  <div class="arch-node">
+                    <span>SignalR Hub Broadcast</span>
+                    <span class="badge">Live Stream</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card reveal">
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-badge">ACADEMIC</span>
+                <span class="project-date">MAY 2025</span>
+              </div>
+              <h3>MediRappel (HealthBridge) — Patient & Clinical Portal</h3>
+              <div class="project-org">Academic Project · ESEN Manouba</div>
+              <p class="project-desc">
+                A healthcare platform connecting patients and practitioners with automated scheduling, secure medical record management, and an automated prescription medication reminder engine.
+              </p>
+              <ul class="project-highlights">
+                <li>Implemented responsive appointment booking system with role-based access control (Doctor, Patient, Administrator).</li>
+                <li>Integrated scheduled background services for automated SMS/email reminders on upcoming dosage schedules.</li>
+                <li>Engineered normalized PostgreSQL relational database schema for clinical records compliance.</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag-badge">Angular</span>
+                <span class="tag-badge">ASP.NET Web API</span>
+                <span class="tag-badge">PostgreSQL</span>
+                <span class="tag-badge">Background Worker</span>
+                <span class="tag-badge">JWT Security</span>
+              </div>
+              <div class="cta-row">
+                <a class="btn btn-ghost btn-sm" href="https://github.com/Houssem-Jouini" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+
+            <div class="project-side-panel">
+              <div class="architecture-preview">
+                <div class="arch-header">Key Modules</div>
+                <div class="arch-flow-box">
+                  <div class="arch-node">
+                    <span>Clinical Records</span>
+                    <span class="badge">EHR</span>
+                  </div>
+                  <div class="arch-node">
+                    <span>Appointment Scheduler</span>
+                    <span class="badge">Calendar</span>
+                  </div>
+                  <div class="arch-node">
+                    <span>Medication Reminder</span>
+                    <span class="badge">Worker Service</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INTERACTIVE SIMULATOR SECTION ================= -->
+    <section id="architecture">
+      <div class="wrap">
+        <div class="eyebrow reveal"><span class="dot"></span> 04 — Interactive Architecture</div>
+        <h2 class="section-title reveal">Live CQRS & SignalR Pipeline Simulator</h2>
+        <p class="section-subtitle reveal">Experience how my architectural pattern processes commands, persists state, and streams live telemetry to Angular clients in real time.</p>
+
+        <div class="simulator-card reveal">
+          <div class="sim-controls">
+            <div class="sim-info">
+              <span>Command: <b>CreateWorkflowCommand</b> (Payload: <code>BPMN_OrderProcess_v2</code>)</span>
+            </div>
+            <button id="run-simulation-btn" class="btn btn-primary">
+              <span>▶ Run Live Pipeline Simulation</span>
+            </button>
+          </div>
+
+          <!-- Pipeline Stages -->
+          <div class="sim-pipeline">
+            <div class="pipeline-step" id="step-0">
+              <div class="step-num"><span>01</span> <span class="step-icon">🌐</span></div>
+              <div class="step-title">Angular Client</div>
+              <div class="step-detail">Dispatches Command via HTTP POST</div>
+            </div>
+
+            <div class="pipeline-step" id="step-1">
+              <div class="step-num"><span>02</span> <span class="step-icon">⚡</span></div>
+              <div class="step-title">MediatR Pipeline</div>
+              <div class="step-detail">Validation & CQRS Handler</div>
+            </div>
+
+            <div class="pipeline-step" id="step-2">
+              <div class="step-num"><span>03</span> <span class="step-icon">🗄️</span></div>
+              <div class="step-title">EF Core & SQL</div>
+              <div class="step-detail">Unit of Work Commit</div>
+            </div>
+
+            <div class="pipeline-step" id="step-3">
+              <div class="step-num"><span>04</span> <span class="step-icon">📡</span></div>
+              <div class="step-title">SignalR Hub</div>
+              <div class="step-detail">Real-Time Client Broadcast</div>
+            </div>
+          </div>
+
+          <!-- Live Output Terminal -->
+          <div id="sim-log" class="sim-terminal">
+            <div class="sim-log-line">
+              <span class="sim-time">[IDLE]</span>
+              <span>Click "Run Live Pipeline Simulation" to observe end-to-end execution...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION & CERTS SECTION ================= -->
+    <section id="education">
+      <div class="wrap">
+        <div class="eyebrow reveal"><span class="dot"></span> 05 — Academic & Certifications</div>
+        <h2 class="section-title reveal">Background & Credentials</h2>
+        <p class="section-subtitle reveal">My academic foundation in management informatics and industry-recognized certifications.</p>
+
+        <div class="two-col reveal-stagger">
+          <!-- Education -->
+          <div class="edu-box">
+            <div class="box-title">🎓 Higher Education</div>
+            <div class="edu-item">
+              <div class="deg">Licence en Informatique de Gestion</div>
+              <div class="school">ESEN Manouba, Tunisia · 2023 – 2026</div>
+            </div>
+            <div class="edu-item">
+              <div class="deg">Baccalauréat in Computer Science</div>
+              <div class="school">Mourouj 3, Tunisia · 2023</div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="certs-box">
+            <div class="box-title">📜 Verified Certifications</div>
+            
+            <div class="cert-card">
+              <span class="cert-icon">✓</span>
+              <div class="cert-info">
+                <h4>Introduction to Cybersecurity</h4>
+                <p>Cisco Networking Academy</p>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <span class="cert-icon">✓</span>
+              <div class="cert-info">
+                <h4>Oracle Database SQL Certification</h4>
+                <p>DataCamp · Database Design & Advanced Queries</p>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <span class="cert-icon">✓</span>
+              <div class="cert-info">
+                <h4>Java Fundamentals Certification</h4>
+                <p>DataCamp · OOP & Data Structures</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="eyebrow reveal"><span class="dot"></span> 06 — Let's Connect</div>
+        <h2 class="section-title reveal">Have a project to model, build, or ship?</h2>
+        <p class="section-subtitle reveal">Available immediately for freelance missions, long-term contracts, or full-time opportunities — remote or on-site in Greater Tunis.</p>
+
+        <div class="contact-grid">
+          <!-- Left: Direct Info & Quick Copy -->
+          <div class="contact-left reveal">
+            <div class="contact-list">
+              <button class="contact-item-btn" data-copy="houssemeddine.jouini@esen.tn" data-label="Email address copied!">
+                <div class="contact-item-left">
+                  <div class="contact-icon-box">✉</div>
+                  <div class="contact-text">
+                    <div class="label">Email Address</div>
+                    <div class="val">houssemeddine.jouini@esen.tn</div>
+                  </div>
+                </div>
+                <span class="copy-badge">Copy</span>
+              </button>
+
+              <button class="contact-item-btn" data-copy="+21653098249" data-label="Phone number copied!">
+                <div class="contact-item-left">
+                  <div class="contact-icon-box">📞</div>
+                  <div class="contact-text">
+                    <div class="label">Phone / WhatsApp</div>
+                    <div class="val">+216 53 098 249</div>
+                  </div>
+                </div>
+                <span class="copy-badge">Copy</span>
+              </button>
+
+              <a class="contact-item-btn" href="https://github.com/Houssem-Jouini" target="_blank" rel="noopener">
+                <div class="contact-item-left">
+                  <div class="contact-icon-box">🐙</div>
+                  <div class="contact-text">
+                    <div class="label">GitHub Profile</div>
+                    <div class="val">github.com/Houssem-Jouini</div>
+                  </div>
+                </div>
+                <span class="copy-badge">Visit ↗</span>
+              </a>
+
+              <div class="contact-item-btn" style="cursor: default;">
+                <div class="contact-item-left">
+                  <div class="contact-icon-box">📍</div>
+                  <div class="contact-text">
+                    <div class="label">Location</div>
+                    <div class="val">Ben Arous, Greater Tunis, Tunisia</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lang-row">
+              <span><b>AR</b> Native</span>
+              <span><b>FR</b> Professional</span>
+              <span><b>EN</b> Professional</span>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Contact Form -->
+          <div class="contact-form-card reveal">
+            <form id="contact-form">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Your Name</label>
+                <input class="form-input" type="text" id="contact-name" placeholder="Jane Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email Address</label>
+                <input class="form-input" type="email" id="contact-email" placeholder="jane@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-subject">Subject / Project Type</label>
+                <input class="form-input" type="text" id="contact-subject" placeholder="New Angular / .NET Project">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Message</label>
+                <textarea class="form-textarea" id="contact-message" placeholder="Tell me about your project, timeline, or requirements..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Send Message via Email →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-content">
+        <div>
+          © 2026 Houssem Eddine Jouini · Designed with Clean Code Principles
+        </div>
+        <div class="footer-socials">
+          <a href="https://github.com/Houssem-Jouini" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:houssemeddine.jouini@esen.tn">Email</a>
+          <a href="tel:+21653098249">Phone</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
